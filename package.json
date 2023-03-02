@@ -1,0 +1,20 @@
+{
+  "name": "aaaaaa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^23.0.0"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.9",
+    "electron-log": "^5.0.0-beta.16"
+  }
+}
