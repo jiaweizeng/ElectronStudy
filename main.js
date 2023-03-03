@@ -25,7 +25,8 @@ app.on('ready',()=>{
     require("@electron/remote/main").enable(mainWindow.webContents);
 
     // mainWindow.loadFile('index.html')  //获取文件中的文本内容
-    mainWindow.loadFile('demo2.html')  //remote打开新窗口，界面右键菜单设置
+    // mainWindow.loadFile('demo2.html')  //remote打开新窗口，界面右键菜单设置
+    mainWindow.loadFile('demo3.html')  //使用shell，在浏览器中打开网页
 
     //监听关闭事件，把主窗口设置为null
     mainWindow.on('closed',()=>{
