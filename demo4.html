@@ -10,7 +10,8 @@
 <body>
     <button id="openBtn">打开文件</button>
     <button id="saveBtn">保存文件</button>
-    <img id="images"  style="width:100%" />
+    <button id="messageBtn">弹出对话框</button>
+    <img id="images" style="width:100%" />
 </body>
 
 <script>
@@ -24,25 +25,42 @@
             filters: [
                 { name: 'jpg', extensions: ['jpg', 'png'] }
             ]
-        }).then(result=>{
+        }).then(result => {
             let image = document.getElementById('images')
-            image.setAttribute("src",result.filePaths[0]);
+            image.setAttribute("src", result.filePaths[0]);
             console.log(result)
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
     const fs = require('fs')
     var saveBtn = document.getElementById('saveBtn')
-    saveBtn.onclick = function(){
+    saveBtn.onclick = function () {
         dialog.showSaveDialog({
-            title:'保存文件',
+            title: '保存文件',
 
-        }).then(result=>{
+        }).then(result => {
             console.log(result)
-            fs.writeFileSync(result.filePath,'保存文件时写入的文字')
-        }).catch(err=>{
+            fs.writeFileSync(result.filePath, '保存文件时写入的文字')
+        }).catch(err => {
             console.log(err)
+        })
+    }
+    var messageBtn = document.getElementById('messageBtn')
+    messageBtn.onclick = function () {
+        // type ：String类型，可以选，图标样式，有none、info、error、question和warning
+        // title: String类型，弹出框的标题
+        // messsage : String 类型，必选 message box 的内容，这个是必须要写的
+        // buttons: 数组类型
+        dialog.showMessageBox({
+            type: 'warning',
+            title: '去不去由你',
+            message: '是不是去asdjflasdfkl?',
+            buttons: ['我要去', '不去了']
+        }).then(result => {
+            //可以看到回调中result里有一个response这个里会给我们返回按钮的数组下标。
+            // 为什么会鼓励使用showMessageBox，因为这样比JS里的alert更加灵活,比如可以设置按钮，可以设置title。
+            console.log(result)
         })
     }
 
