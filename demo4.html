@@ -9,6 +9,7 @@
 
 <body>
     <button id="openBtn">打开文件</button>
+    <button id="saveBtn">保存文件</button>
     <img id="images"  style="width:100%" />
 </body>
 
@@ -27,6 +28,19 @@
             let image = document.getElementById('images')
             image.setAttribute("src",result.filePaths[0]);
             console.log(result)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+    const fs = require('fs')
+    var saveBtn = document.getElementById('saveBtn')
+    saveBtn.onclick = function(){
+        dialog.showSaveDialog({
+            title:'保存文件',
+
+        }).then(result=>{
+            console.log(result)
+            fs.writeFileSync(result.filePath,'保存文件时写入的文字')
         }).catch(err=>{
             console.log(err)
         })
