@@ -32,11 +32,11 @@ app.on('ready', () => {
 
     // mainWindow.loadFile('index.html')  //获取文件中的文本内容
     // mainWindow.loadFile('demo2.html')  //remote打开新窗口，界面右键菜单设置
-    // mainWindow.loadFile('demo3.html')  //使用shell，在浏览器中打开网页。子窗口向父窗口传递消息
+    mainWindow.loadFile('demo3.html')  //使用shell，在浏览器中打开网页。子窗口向父窗口传递消息
     // mainWindow.loadFile('demo4.html') //打开文件,保存文件,弹出对话框
     // mainWindow.loadFile('demo5.html') //断网提醒测试
     // mainWindow.loadFile('demo6.html')// 通知消息
-    mainWindow.loadFile('demo7.html')// 复制到剪贴板
+    // mainWindow.loadFile('demo7.html')// 复制到剪贴板
 
     //通常把window.open打开的窗口叫做子窗口   BrowserView打开的就是一个窗口
     // var BrowserView = electron.BrowserView //引入BrowserView
